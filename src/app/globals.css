@@ -5,22 +5,50 @@
   --foreground: #171717;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Reset Lenis de base - Essentiel */
+html.lenis, .lenis.lenis-smooth {
+  height: auto;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
+/* Conteneur projets */
+.projects-container {
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y; 
+  overscroll-behavior-x: none; 
+}
+
+/* Mode horizontal */
+.projects-container.horizontal-mode {
+  touch-action: pan-x;
+}
+
+.projects-content {
+  overscroll-behavior-x: contain;
+  will-change: transform; 
+}
+
+[data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+/* Animation pulse */
+@keyframes pulse-slow {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.4;
+    box-shadow: 0 0 40px rgba(255,255,255,0.15);
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+    box-shadow: 0 0 80px rgba(255,255,255,0.3);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
 }
