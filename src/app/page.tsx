@@ -34,6 +34,13 @@ export default function Home() {
       image: "/obavocat-preview.jpg"
     },
     {
+      titleKey: 'projectSubconsiaTitle',
+      descriptionKey: 'projectSubconsiaDescription',
+      techKey: 'projectSubconsiaTech',
+      url: "https://subconsia.com",
+      image: "/subconsia-preview.jpg"
+    },
+    {
       titleKey: 'projectPlacementsTitle',
       descriptionKey: 'projectPlacementsDescription',
       techKey: 'projectPlacementsTech',
