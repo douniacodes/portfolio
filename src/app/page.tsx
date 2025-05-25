@@ -145,6 +145,7 @@ export default function Home() {
       lenis.destroy();
       ScrollTrigger.getAll().forEach(t => t.kill());
     };
+
   }, [projects.length]);
 
   const scrollToSection = (index: number) => {

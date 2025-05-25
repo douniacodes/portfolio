@@ -44,13 +44,16 @@ export default function Header() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex gap-8 items-center">
         {navItems.map((item) => (
-          <a
+          <Link
             key={item.label}
-            href={item.href}
+            href={{
+              pathname: '/',
+              hash: item.href,
+            }}
             className="text-white/80 hover:text-white transition-colors"
           >
             {item.label}
-          </a>
+          </Link>
         ))}
         <button
           onClick={toggleLanguage}
@@ -71,14 +74,17 @@ export default function Header() {
       {open && (
         <div className="absolute top-full left-0 w-full bg-black/90 text-white flex flex-col gap-4 px-6 py-4 md:hidden items-end text-right">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.label}
-              href={item.href}
+              href={{
+                pathname: '/',
+                hash: item.href,
+              }}
               className="text-white/80 hover:text-white transition-colors"
               onClick={() => setOpen(false)}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           <button
             onClick={() => {

@@ -42,7 +42,11 @@ const translations = {
     projectPlacementsTitle: "Investments For All",
     projectPlacementsDescription: "Financial blog on WordPress",
     projectPlacementsTech: "WordPress · Elementor · SEO",
-    visitSite: "Visit website"
+    visitSite: "Visit website",
+    pageNotFound: "Page Not Found",
+    pageNotFoundDescription: "The page you're looking for doesn't exist or has been moved.",
+    returnHome: "Return Home",
+    viewProjects: "View Projects"
   },
   fr: {
     home: 'Accueil',
@@ -72,7 +76,11 @@ const translations = {
     projectPlacementsTitle: "Placements Pour Tous",
     projectPlacementsDescription: "Blog financier sous WordPress",
     projectPlacementsTech: "WordPress · Elementor · Référencement",
-    visitSite: "Visiter le site"
+    visitSite: "Visiter le site",
+    pageNotFound: "Page Non Trouvée",
+    pageNotFoundDescription: "La page que vous recherchez n'existe pas ou a été déplacée.",
+    returnHome: "Retour à l'accueil",
+    viewProjects: "Voir les projets"
   },
   es: {
     home: 'Inicio',
@@ -102,7 +110,11 @@ const translations = {
     projectPlacementsTitle: "Inversiones Para Todos",
     projectPlacementsDescription: "Blog financiero en WordPress",
     projectPlacementsTech: "WordPress · Elementor · SEO",
-    visitSite: "Visitar sitio"
+    visitSite: "Visitar sitio",
+    pageNotFound: "Página No Encontrada",
+    pageNotFoundDescription: "La página que buscas no existe o ha sido movida.",
+    returnHome: "Volver al Inicio",
+    viewProjects: "Ver Proyectos"
   }
 }
 
