@@ -90,10 +90,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" className="!scroll-smooth">
-       <head>
-        <meta name="apple-mobile-web-app-title" content="DB Portfolio" />
-      </head>
+    <html lang="fr" className="!scroll-smooth">
       <body className={`${inter.className} bg-black text-white`}>
         <LenisProvider>
           <LanguageProvider>
