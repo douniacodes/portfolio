@@ -1,15 +1,16 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { useLanguage } from './LanguageContext'
 
 export default function Header() {
   const pathname = usePathname()
+  const router = useRouter()
   const [open, setOpen] = useState(false)
-  const { language, toggleLanguage } = useLanguage() 
+  const { language, toggleLanguage } = useLanguage()
 
   const navItems = language === 'en'
     ? [
@@ -32,6 +33,26 @@ export default function Header() {
         { label: 'Contact', href: '#contact' },
       ]
 
+  const handleNavigation = (href: string) => {
+    setOpen(false)
+    
+    if (pathname === '/') {
+      // Si déjà sur la page d'accueil, utiliser Lenis pour le défilement
+      const lenis = (window as any).lenis
+      const target = document.querySelector(href)
+      if (lenis && target) {
+        lenis.scrollTo(target, {
+          offset: 0,
+          duration: 1.2,
+          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        })
+      }
+    } else {
+      // Si sur une autre page, naviguer vers la page d'accueil avec l'ancre
+      router.push(`/${href}`)
+    }
+  }
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center bg-black/60 backdrop-blur-md border-b border-white/10">
       {/* Logo */}
@@ -44,16 +65,13 @@ export default function Header() {
       {/* Desktop Menu */}
       <nav className="hidden md:flex gap-8 items-center">
         {navItems.map((item) => (
-          <Link
+          <button
             key={item.label}
-            href={{
-              pathname: '/',
-              hash: item.href,
-            }}
+            onClick={() => handleNavigation(item.href)}
             className="text-white/80 hover:text-white transition-colors"
           >
             {item.label}
-          </Link>
+          </button>
         ))}
         <button
           onClick={toggleLanguage}
@@ -74,17 +92,13 @@ export default function Header() {
       {open && (
         <div className="absolute top-full left-0 w-full bg-black/90 text-white flex flex-col gap-4 px-6 py-4 md:hidden items-end text-right">
           {navItems.map((item) => (
-            <Link
+            <button
               key={item.label}
-              href={{
-                pathname: '/',
-                hash: item.href,
-              }}
-              className="text-white/80 hover:text-white transition-colors"
-              onClick={() => setOpen(false)}
+              onClick={() => handleNavigation(item.href)}
+              className="text-white/80 hover:text-white transition-colors text-right"
             >
               {item.label}
-            </Link>
+            </button>
           ))}
           <button
             onClick={() => {
@@ -100,3 +114,4 @@ export default function Header() {
     </header>
   )
 }
+

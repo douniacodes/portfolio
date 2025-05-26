@@ -51,34 +51,42 @@ export default function Home() {
   ]
 
   useEffect(() => {
- 
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
       syncTouch: true,
-      touchMultiplier: 1.2, 
+      touchMultiplier: 1.2,
       gestureOrientation: 'vertical',
       autoRaf: false,
-    });
+      // Correction ici :
+      anchors: {
+        offset: 0,
+        duration: 1.2,
+        easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      }
+    })
   
-    gsap.registerPlugin(ScrollTrigger);
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => lenis.raf(time * 1000));
+    // Stockez Lenis dans window pour y accéder depuis le Header
+    ;(window as any).lenis = lenis
   
-    let horizontalTrigger: ScrollTrigger;
-    let isInHorizontalSection = false;
+    gsap.registerPlugin(ScrollTrigger)
+    lenis.on('scroll', ScrollTrigger.update)
+    gsap.ticker.add((time) => lenis.raf(time * 1000))
+  
+    let horizontalTrigger: ScrollTrigger
+    let isInHorizontalSection = false
   
     const setupHorizontalScroll = () => {
-      if (!projectsContainerRef.current || !projectsContentRef.current) return;
+      if (!projectsContainerRef.current || !projectsContentRef.current) return
   
-      const container = projectsContainerRef.current;
-      const content = projectsContentRef.current;
-      const projectWidth = container.offsetWidth;
-      const totalWidth = projectWidth * projects.length;
+      const container = projectsContainerRef.current
+      const content = projectsContentRef.current
+      const projectWidth = container.offsetWidth
+      const totalWidth = projectWidth * projects.length
   
-      content.style.width = `${totalWidth}px`;
+      content.style.width = `${totalWidth}px`
   
-      if (horizontalTrigger) horizontalTrigger.kill();
+      if (horizontalTrigger) horizontalTrigger.kill()
   
       horizontalTrigger = ScrollTrigger.create({
         trigger: container,
@@ -91,62 +99,61 @@ export default function Home() {
           ease: 'power2.inOut',
         }),
         onEnter: () => {
-          isInHorizontalSection = true;
-          lenis.options.gestureOrientation = 'horizontal';
-          lenis.options.touchMultiplier = 1.2; // Valeur spécifique pour le horizontal
+          isInHorizontalSection = true
+          lenis.options.gestureOrientation = 'horizontal'
+          lenis.options.touchMultiplier = 1.2
         },
         onLeave: () => {
-          isInHorizontalSection = false;
-          lenis.options.gestureOrientation = 'vertical';
-          lenis.options.touchMultiplier = 1; 
+          isInHorizontalSection = false
+          lenis.options.gestureOrientation = 'vertical'
+          lenis.options.touchMultiplier = 1
         },
         onLeaveBack: () => {
-          isInHorizontalSection = false;
-          lenis.options.gestureOrientation = 'vertical';
+          isInHorizontalSection = false
+          lenis.options.gestureOrientation = 'vertical'
         }
-      });
+      })
   
       // Gestion tactile
-      let touchStartX = 0;
-      let isHorizontalScroll = false;
+      let touchStartX = 0
+      let isHorizontalScroll = false
   
       container.addEventListener('touchstart', (e) => {
-        if (!isInHorizontalSection) return;
-        touchStartX = e.touches[0].clientX;
-        isHorizontalScroll = false;
-      }, { passive: true });
+        if (!isInHorizontalSection) return
+        touchStartX = e.touches[0].clientX
+        isHorizontalScroll = false
+      }, { passive: true })
   
       container.addEventListener('touchmove', (e) => {
-        if (!isInHorizontalSection || !horizontalTrigger.isActive) return;
+        if (!isInHorizontalSection || !horizontalTrigger.isActive) return
         
-        const xDiff = e.touches[0].clientX - touchStartX;
+        const xDiff = e.touches[0].clientX - touchStartX
         if (Math.abs(xDiff) > 25) { 
-          isHorizontalScroll = true;
-          e.preventDefault();
+          isHorizontalScroll = true
+          e.preventDefault()
         }
-      }, { passive: false });
+      }, { passive: false })
   
       container.addEventListener('touchend', () => {
-        isHorizontalScroll = false;
-      }, { passive: true });
-    };
+        isHorizontalScroll = false
+      }, { passive: true })
+    }
   
-    setupHorizontalScroll();
+    setupHorizontalScroll()
   
     const handleResize = () => {
-      setupHorizontalScroll();
-      ScrollTrigger.refresh();
-    };
+      setupHorizontalScroll()
+      ScrollTrigger.refresh()
+    }
   
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize)
   
     return () => {
-      window.removeEventListener('resize', handleResize);
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach(t => t.kill());
-    };
-
-  }, [projects.length]);
+      window.removeEventListener('resize', handleResize)
+      lenis.destroy()
+      delete (window as any).lenis
+    }
+  }, [projects])
 
   const scrollToSection = (index: number) => {
     const sections = document.querySelectorAll('section')
