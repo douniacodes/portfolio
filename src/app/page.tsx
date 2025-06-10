@@ -324,11 +324,11 @@ export default function Home() {
           </h2>
 
           <div className="grid grid-cols-2 gap-4 mt-20">
-            <a href="mailto:dounia.codes@gmail.com" className="border border-white/20 rounded-lg py-4 px-6 hover:bg-white hover:text-black transition-all">
-              {t('emailMe')}
+            <a href="https://www.linkedin.com/in/dounia-bkm-353b72367/" className="border border-white/20 rounded-lg py-4 px-6 hover:bg-white hover:text-black transition-all">
+              {t('linkedinMe')}
             </a>
-            <a href="https://calendly.com/dounia-codes/30min" className="bg-white text-black rounded-lg py-4 px-6 hover:bg-transparent hover:text-white hover:border hover:border-white/20 transition-all">
-              {t('calendly')}
+            <a href="https://tally.so/r/wQazqp" className="bg-white text-black rounded-lg py-4 px-6 hover:bg-transparent hover:text-white hover:border hover:border-white/20 transition-all">
+              {t('contactForm')}
             </a>
           </div>
         </div>
