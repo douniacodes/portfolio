@@ -18,6 +18,7 @@ export default function Header() {
         { label: 'Work', href: '#work' },
         { label: 'About', href: '#about' },
         { label: 'Contact', href: '#contact' },
+        { label: 'Blog', href: '/blog' },
       ]
     : language === 'es' 
     ? [
@@ -25,18 +26,23 @@ export default function Header() {
         { label: 'Proyectos', href: '#work' },
         { label: 'Acerca de', href: '#about' },
         { label: 'Contacto', href: '#contact' },
+        { label: 'Blog', href: '/blog' },
       ]
     : [
         { label: 'Accueil', href: '#home' },
         { label: 'Projets', href: '#work' },
         { label: 'À propos', href: '#about' },
         { label: 'Contact', href: '#contact' },
+        { label: 'Blog', href: '/blog' },
       ]
 
   const handleNavigation = (href: string) => {
     setOpen(false)
     
-    if (pathname === '/') {
+    if (href.startsWith('/')) {
+      // Navigation vers une page
+      router.push(href)
+    } else if (pathname === '/') {
       // Si déjà sur la page d'accueil, utiliser Lenis pour le défilement
       const lenis = (window as any).lenis
       const target = document.querySelector(href)
