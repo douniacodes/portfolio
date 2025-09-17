@@ -92,6 +92,12 @@ export default function Home() {
   ]
 
   useEffect(() => {
+    // Nettoyer l'instance précédente si elle existe
+    if ((window as any).lenis) {
+      (window as any).lenis.destroy()
+      delete (window as any).lenis
+    }
+
     const lenis = new Lenis({
       lerp: 0.1,
       smoothWheel: true,
@@ -99,7 +105,6 @@ export default function Home() {
       touchMultiplier: 1.2,
       gestureOrientation: 'vertical',
       autoRaf: false,
-      // Correction ici :
       anchors: {
         offset: 0,
         duration: 1.2,
@@ -191,10 +196,12 @@ export default function Home() {
   
     return () => {
       window.removeEventListener('resize', handleResize)
+      if (horizontalTrigger) horizontalTrigger.kill()
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill())
       lenis.destroy()
       delete (window as any).lenis
     }
-  }, [projects])
+  }, [projects, t])
 
   const scrollToSection = (index: number) => {
     const sections = document.querySelectorAll('section')
