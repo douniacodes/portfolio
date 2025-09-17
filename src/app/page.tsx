@@ -88,6 +88,15 @@ export default function Home() {
       github: "https://github.com/douniacodes/IdeasGenerator",
       color: "from-yellow-600/30 to-orange-500/30",
       image: "/ideas-preview.jpg"
+    },
+    {
+      titleKey: 'projectDouniaBoukrimTitle',
+      descriptionKey: 'projectDouniaBoukrimDescription',
+      techKey: 'projectDouniaBoukrimTech',
+      url: "https://douniaboukrim.com",
+      github: "https://github.com/douniacodes",
+      color: "from-pink-600/30 to-red-500/30",
+      image: "/douniaboukrim-preview.jpg"
     }
   ]
 
