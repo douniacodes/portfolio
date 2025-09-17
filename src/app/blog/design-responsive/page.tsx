@@ -8,9 +8,9 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 const shareLinks = {
   Twitter: (url: string, title: string) => 
     `https://twitter.com/intent/tweet?url=${encodeURIComponent(url)}&text=${encodeURIComponent(title)}`,
-  LinkedIn: (url: string, title: string) => 
+  LinkedIn: (url: string) => 
     `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
-  Facebook: (url: string) => 
+  Facebook: (url: string, title: string) => 
     `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
 }
 
@@ -221,7 +221,9 @@ export default function DesignResponsive() {
                     onClick={() => {
                       const url = window.location.href;
                       const title = "Design Responsive Moderne - DouniaCodes";
-                      const link = getLink(url, title);
+                      const link = platform === "LinkedIn"
+                        ? (getLink as (url: string) => string)(url)
+                        : (getLink as (url: string, title: string) => string)(url, title);
                       window.open(link, '_blank', 'noopener,noreferrer');
                     }}
                     className="px-4 py-2 text-sm bg-white/10 rounded-lg border border-white/10 
