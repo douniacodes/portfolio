@@ -52,6 +52,14 @@ export default function BlogPage() {
       date: "2025-09-17",
       tags: ["CSS", "Responsive Design", "UI/UX"],
       readingTime: "6 min"
+    }, 
+    {
+      slug: "creation-mockup",
+      title: "Maîtriser l'Art du Mockup",
+      description: "Découvrez comment créer des mockups qui marquent les esprits.",
+      date: "2025-09-18",
+      tags: ["Mockup", "Design", "Canva"],
+      readingTime: "7 min"
     }
   ]
 

@@ -40,7 +40,7 @@ export default function Home() {
       titleKey: 'projectSubconsiaTitle',
       descriptionKey: 'projectSubconsiaDescription',
       techKey: 'projectSubconsiaTech',
-      url: "https://subconsia.com",
+      url: "https://subconsia.fr",
       github: "https://github.com/douniacodes",
       image: "/subconsia-preview.jpg"
     },

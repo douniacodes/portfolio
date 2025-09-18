@@ -20,7 +20,13 @@ export const metadata: Metadata = {
     "GSAP animations",
     "développement web créatif",
     "DouniaCodes",
-    "freelance frontend"
+    "freelance frontend", 
+    "développement web Lille",
+    "fullstack développement",
+    "freelance React",
+    "freelance Next.js",
+    "développeuse web Paris",
+    "développeuse web Lille"
   ].join(', '),
   authors: [{ name: 'DouniaCodes', url: 'https://douniacodes.com' }],
   creator: 'DouniaCodes',

@@ -169,7 +169,7 @@ export default function PremierArticle() {
           </p>
         </div>
 
-        {/* Partage et navigation */}
+ {/* Partage et navigation */}
         <footer className="mt-20 pt-12 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
             <div>
@@ -179,11 +179,15 @@ export default function PremierArticle() {
                   <button
                     key={platform}
                     onClick={() => {
-                      const url = window.location.href;
+                      if (typeof window === 'undefined') return;
+                      const baseUrl = 'https://www.douniacodes.com';
+                      const path = '/blog/premier-article'; 
+                      const fullUrl = `${baseUrl}${path}`;
                       const title = "Mon Premier Article - DouniaCodes";
                       const link = platform === "LinkedIn"
-                        ? (getLink as (url: string) => string)(url)
-                        : (getLink as (url: string, title: string) => string)(url, title);
+                        ? (getLink as (url: string) => string)(fullUrl)
+                        : (getLink as (url: string, title: string) => string)(fullUrl, title);
+                      
                       window.open(link, '_blank', 'noopener,noreferrer');
                     }}
                     className="px-4 py-2 text-sm bg-white/10 rounded-lg border border-white/10 
