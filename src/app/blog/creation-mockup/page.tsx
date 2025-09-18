@@ -279,43 +279,54 @@ export default function CreateMockups() {
             </div>
           </div>
 
-          {/* Slideshow des mockups Canva */}
-          <div className="my-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl border border-purple-400/20">
-            <h3 className="text-xl font-semibold mb-6 text-center">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Exemple de Création Mockup avec Canva
-              </span>
-            </h3>
-            
-            <div className="relative max-w-2xl mx-auto">
-              <div className="mockup-slideshow overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
-                <div className="slideshow-container relative aspect-[16/9] md:aspect-[16/10]">
-                  {MOCKUP_IMAGES.map((mockup, index) => (
-                    <div 
-                      key={mockup.id}
-                      className={`slide absolute inset-0 transition-all duration-500 ease-in-out ${
-                        index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+            {/* Slideshow des mockups Canva */}
+            <div className="my-12 p-6 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl border border-purple-400/20">
+              <h3 className="text-xl font-semibold mb-6 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Exemple de Création Mockup avec Canva
+                </span>
+              </h3>
+              
+              <div className="relative max-w-2xl mx-auto">
+                <div className="mockup-slideshow overflow-hidden rounded-lg bg-black/20 backdrop-blur-sm border border-white/10">
+                  <div className="slideshow-container relative aspect-[16/9] md:aspect-[16/10]">
+                    {MOCKUP_IMAGES.map((mockup, index) => (
+                      <div 
+                        key={mockup.id}
+                        className={`slide absolute inset-0 transition-all duration-500 ease-in-out ${
+                          index === currentSlide ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+                        }`}
+                        style={{ display: index === currentSlide ? 'block' : 'none' }}
+                      >
+                        <Image
+                          src={mockup.src}
+                          alt={mockup.alt}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+                          className="object-contain w-full h-full p-4"
+                          priority={index === 0}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                
+                {/* Navigation dots */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                  {MOCKUP_IMAGES.map((_, index) => (
+                    <button 
+                      key={index}
+                      className={`dot w-2 h-2 rounded-full transition-all duration-300 ${
+                        index === currentSlide ? 'bg-purple-400 scale-125' : 'bg-white/30 hover:bg-white/50'
                       }`}
-                      style={{ display: index === currentSlide ? 'block' : 'none' }}
-                    >
-                      <Image
-                        src={mockup.src}
-                        alt={mockup.alt}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
-                        className="object-contain w-full h-full p-4"
-                        priority={index === 0}
-                      />
-                    </div>
+                      onClick={() => setCurrentSlide(index)}
+                    />
                   ))}
                 </div>
-              </div>
-              
-              {/* Navigation controls */}
-              <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4">
+
+                {/* Flèches de navigation */}
                 <button 
                   onClick={prevSlide}
-                  className="w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all text-white/70 hover:text-white"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all text-white/70 hover:text-white"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m15 18-6-6 6-6"></path>
@@ -324,13 +335,17 @@ export default function CreateMockups() {
                 
                 <button 
                   onClick={nextSlide}
-                  className="w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all text-white/70 hover:text-white"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/50 hover:bg-black/70 rounded-full flex items-center justify-center transition-all text-white/70 hover:text-white"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="m9 18 6-6-6-6"></path>
                   </svg>
                 </button>
               </div>
+              
+              <p className="text-center mt-4 text-sm opacity-60">
+                Mockup pour le Blog Subconsia réalisé avec Canva - Interface simple, résultats professionnels
+              </p>
             </div>
           </div>
 
