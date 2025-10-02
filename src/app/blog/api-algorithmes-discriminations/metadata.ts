@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata> {
   const baseUrl = 'https://douniacodes.com'
-  const imageUrl = `${baseUrl}/assets/blog/biais-algorithmiques-preview.jpg`
+  const imageUrl = `${baseUrl}/assets/blog/api-algorithmes-discriminations-preview.jpg`
 
   return {
     title: "API et Biais Algorithmiques : L'Amplification des Discriminations | Blog DouniaCodes",
