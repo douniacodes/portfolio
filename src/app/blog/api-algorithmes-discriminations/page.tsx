@@ -212,7 +212,7 @@ export default function BiaisAlgorithmiques() {
               ></iframe>
             </div>
             <p className="text-sm opacity-60 mt-3 text-center">
-              Documentaire sur l'impact des biais algorithmiques dans notre société
+              Conférence sur l'impact des biais algorithmiques dans notre société
             </p>
           </div>
 
