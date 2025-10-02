@@ -60,6 +60,14 @@ export default function BlogPage() {
       date: "2025-09-18",
       tags: ["Mockup", "Design", "Canva"],
       readingTime: "7 min"
+    }, 
+    {
+      slug: "api-algorithmes-discriminations",
+      title: "API et Biais Algorithmiques : L'Amplification des Discriminations",
+      description: "Découvrez comment les API et les algorithmes peuvent amplifier les discriminations et les biais sociaux dans le monde numérique.",
+      date: "2025-09-25",
+      tags: ["IA", "Éthique", "Algorithmes", "Discriminations", "Tech"],
+      readingTime: "15 min"
     }
   ]
 
