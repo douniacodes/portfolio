@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
+
+Disallow: /_next/
+Disallow: /favicon.ico
+Disallow: /site.webmanifest
+
 Sitemap: https://www.douniacodes.com/sitemap.xml
