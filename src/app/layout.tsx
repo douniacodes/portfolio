@@ -28,17 +28,15 @@ export const metadata: Metadata = {
     "développeuse web Paris",
     "développeuse web Lille"
   ].join(', '),
-  authors: [{ name: 'DouniaCodes', url: 'https://douniacodes.com' }],
+  authors: [{ name: 'DouniaCodes', url: 'https://www.douniacodes.com' }],
   creator: 'DouniaCodes',
   publisher: 'DouniaCodes',
-  metadataBase: new URL('https://douniacodes.com'),
-  alternates: {
-    canonical: '/',
-  },
+  metadataBase: new URL('https://www.douniacodes.com'),
+  alternates: { canonical: 'https://www.douniacodes.com/' },
   openGraph: {
     title: "DouniaCodes | Développeuse Frontend Créative",
     description: "Portfolio professionnel - Spécialiste en développement frontend innovant et expériences web interactives",
-    url: 'https://douniacodes.com',
+    url: 'https://www.douniacodes.com',
     siteName: 'Portfolio DouniaCodes',
     images: [
       {
@@ -55,7 +53,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'DouniaCodes | Développeuse Frontend Créative',
     description: 'Portfolio professionnel - Spécialiste en développement frontend innovant',
-    images: ['https://douniacodes.com/myportfolio-preview.jpg'],
+    images: ['https://www.douniacodes.com/myportfolio-preview.jpg'],
     creator: '@douniacodes',
   },
   robots: {
