@@ -19,6 +19,24 @@ export default function Home() {
   // Projects data
   const projects = [
     {
+      titleKey: 'projectPremiumConsultingTitle',
+      descriptionKey: 'projectPremiumConsultingDescription',
+      techKey: 'projectPremiumConsultingTech',
+      url: "https://rl-premium-consulting.vercel.app/",
+      github: "https://github.com/douniacodes",
+      color: "from-indigo-800/30 to-blue-700/20",
+      image: "/premiumconsulting-preview.jpg"
+    },
+    {
+      titleKey: 'projectSafaaTitle',
+      descriptionKey: 'projectSafaaDescription',
+      techKey: 'projectSafaaTech',
+      url: "https://safaa-six.vercel.app/",
+      github: "https://github.com/douniacodes",
+      color: "from-indigo-800/30 to-blue-700/20",
+      image: "/safaa-preview.jpg"
+    },
+    {
       titleKey: 'projectGhcTitle',
       descriptionKey: 'projectGhcDescription',
       techKey: 'projectGhcTech',
@@ -349,7 +367,7 @@ export default function Home() {
                     <img 
                       src={project.image} 
                       alt={t(project.titleKey)}
-                      className="w-full h-full object-cover rounded-lg md:rounded-xl"
+                      className="w-full h-full object-contain bg-black rounded-lg md:rounded-xl"
                       loading="lazy"
                     />
                   </div>

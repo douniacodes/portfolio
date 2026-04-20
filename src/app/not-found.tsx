@@ -7,7 +7,7 @@ export default function NotFound() {
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center justify-center px-6 relative overflow-hidden">
-      {/* Background minimaliste similaire à votre style */}
+      {/* Background minimaliste */}
       <div className="fixed inset-0 pointer-events-none z-0 opacity-10">
         <div className="absolute inset-0 opacity-[3%] bg-[size:50px_50px] bg-[linear-gradient(to_right,white_1px,transparent_1px),linear-gradient(to_bottom,white_1px,transparent_1px)]" />
       </div>
