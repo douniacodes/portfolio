@@ -1,6 +1,6 @@
 # DouniaCodes Portfolio 2025
 
-![Preview] (/public/preview.png)
+![Preview](/public/preview.png)
 
 Bienvenue sur le dépôt de mon portfolio personnel. C'est un projet moderne, performant et immersif conçu pour présenter mes projets de développement web et mes articles de blog.
 
