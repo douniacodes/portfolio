@@ -1,37 +1,67 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DouniaCodes Portfolio 2025
 
-## Getting Started
+![Preview] (/public/preview.png)
 
-First, run the development server:
+Bienvenue sur le dépôt de mon portfolio personnel. C'est un projet moderne, performant et immersif conçu pour présenter mes projets de développement web et mes articles de blog.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Langues : Français, Anglais et Espagnol.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Fonctionnalités
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Design Immersif** : Arrière-plan animé avec des particules et des effets visuels cohérents.
+- **Animations Haut de Gamme** : Utilisation intensive de **GSAP** et **ScrollTrigger** pour des transitions fluides au défilement.
+- **Navigation Fluide** : Intégration de **Lenis** pour un défilement "smooth" optimisé.
+- **Blog Dynamique** : Système de blog intégré avec support des métadonnées SEO, temps de lecture et partage social.
+- **Responsive Design** : Entièrement optimisé pour mobile, tablette et desktop avec **Tailwind CSS**.
+- **SEO & Performance** : Score optimal grâce au rendu côté serveur de **Next.js 14+**.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Stack Technique
 
-## Learn More
+- **Framework** : Next.js (App Router)
+- **Langage** : TypeScript
+- **Stylisation** : Tailwind CSS
+- **Animations** : GSAP (GreenSock Animation Platform)
+- **Scroll** : Lenis Scroll
+- **Déploiement** : Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## Démarrage rapide
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Prérequis
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Node.js (version 18 ou supérieure)
+- npm, yarn, pnpm ou bun
 
-## Deploy on Vercel
+### Installation
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Clonez le dépôt :
+   ```bash
+   git clone <https://github.com/votre-utilisateur/douniacodes-portfolio.git>
+   cd douniacodes-portfolio
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# portfolio
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+
+3. Lancez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+
+L'application sera disponible sur http://localhost:3000.
+
+## Structure du Projet
+
+- `/src/app` : Contient toutes les pages et routes (Blog, Projets, etc.).
+- `/src/components` : Composants React réutilisables (Contexte de langue, UI, etc.).
+- `/public` : Assets statiques (Images, icônes, preview.png).
+
+## Blog
+
+Les articles sont situés dans `src/app/blog/[slug]`. Chaque article bénéficie d'une configuration SEO spécifique via son fichier `metadata.ts`.
+
+---
+
+Développé avec passion par **DouniaCodes**
+
