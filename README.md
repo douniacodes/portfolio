@@ -35,8 +35,8 @@ Langues : Français, Anglais et Espagnol.
 
 1. Clonez le dépôt :
    ```bash
-   git clone <https://github.com/votre-utilisateur/douniacodes-portfolio.git>
-   cd douniacodes-portfolio
+   git clone <https://github.com/douniacodes/portfolio.git>
+   cd portfolio
    ```
 
 2. Installez les dépendances :
